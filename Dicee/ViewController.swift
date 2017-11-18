@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var diceImageViewOne: UIImageView!
     @IBOutlet weak var diceImageViewTwo: UIImageView!
     
+    let diceArray = ["dice1", "dice2", "dice3", "dice4", "dice5", "dice6"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -23,40 +25,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func rollButtonPressed(_ sender: UIButton) {
-        let randomDiceIndexOne = Int(arc4random_uniform(6)) + 1
-        let randomDiceIndexTwo = Int(arc4random_uniform(6)) + 1
+        let randomDiceIndexOne = Int(arc4random_uniform(6))
+        let randomDiceIndexTwo = Int(arc4random_uniform(6))
         
-        if randomDiceIndexOne == 1 {
-            diceImageViewOne.image = UIImage(named: "dice1")
-        } else if randomDiceIndexOne == 2 {
-            diceImageViewOne.image = UIImage(named: "dice2")
-        } else if randomDiceIndexOne == 3 {
-            diceImageViewOne.image = UIImage(named: "dice3")
-        } else if randomDiceIndexOne == 4 {
-            diceImageViewOne.image = UIImage(named: "dice4")
-        } else if randomDiceIndexOne == 5 {
-            diceImageViewOne.image = UIImage(named: "dice5")
-        } else if randomDiceIndexOne == 6 {
-            diceImageViewOne.image = UIImage(named: "dice6")
-        }
-        
-        
-        if randomDiceIndexTwo == 1 {
-            diceImageViewTwo.image = UIImage(named: "dice1")
-        } else if randomDiceIndexTwo == 2 {
-            diceImageViewTwo.image = UIImage(named: "dice2")
-        } else if randomDiceIndexTwo == 3 {
-            diceImageViewTwo.image = UIImage(named: "dice3")
-        } else if randomDiceIndexTwo == 4 {
-            diceImageViewTwo.image = UIImage(named: "dice4")
-        } else if randomDiceIndexTwo == 5 {
-            diceImageViewTwo.image = UIImage(named: "dice5")
-        } else if randomDiceIndexTwo == 6 {
-            diceImageViewTwo.image = UIImage(named: "dice6")
-        }
-        
-        print("The first random number is \(randomDiceIndexOne)")
-        print("The second random number is \(randomDiceIndexTwo)")
+        diceImageViewOne.image = UIImage(named: diceArray[randomDiceIndexOne])
+        diceImageViewTwo.image = UIImage(named: diceArray[randomDiceIndexTwo])
     }
     
 }
